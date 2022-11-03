@@ -1,10 +1,10 @@
 import React from "react";
-import Cadastrar from "../pages/Cadastro";
-import Home from "../pages/Home";
-
-
+import ProdutosUni from "../components/ProdutosUni";
+import CriarConta from "../pages/CriarConta";
+import UserPerfil from "../pages/UserPerfil";
 
 export const routers = [
-    {name:"Home", components: Home },
-    {name:"Cadastrar", components: Cadastrar }
-]
+  { name: "UserPerfil", components: UserPerfil },
+  { name: "ProdutosUni", components: ProdutosUni },
+  { name: "CadastroUsuario", components: CriarConta },
+];

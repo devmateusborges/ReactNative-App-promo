@@ -1,19 +1,33 @@
+import { Button, TouchableHighlight, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { ButtonComponents, propsStack } from "../types/types";
 
-import { Button} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
-import { ButtonComponents, HomeNameRoutes } from '../types/types';
-
-type authScreenProp = StackNavigationProp<HomeNameRoutes, 'Cadastrar'>;
-
-
-export default function ButtonRouter(props: ButtonComponents ) {
-  
-const navigation = useNavigation<authScreenProp>();
-
+export default function ButtonRouter(props: ButtonComponents) {
+  const navigation = useNavigation<propsStack>();
   return (
-      <Button title={props.nameButton} onPress={ props.onPress ? () => navigation.navigate(props.nameRoute) : undefined} />
+    <TouchableHighlight
+      activeOpacity={0.6}
+      underlayColor={props.hover}
+      style={props.style}
+      onPress={
+        props.onPress ? () => navigation.navigate(props.nameRoute) : undefined
+      }
+    >
+      <>
+        {props.nameButtonOn ? (
+          props.nameButton
+        ) : (
+          <Text
+            style={{
+              color: props.color ? props.color : "black",
+              fontWeight: "900",
+            }}
+          >
+            {props.nameButton}
+          </Text>
+        )}
+      </>
+    </TouchableHighlight>
   );
 }
-
